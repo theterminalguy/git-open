@@ -3,7 +3,10 @@ Opens your current git branch in the remote specified defaults to GitHub
 
 # Usage
 
-[your_alais] [remote domain]
+[your_alias] [remote domain]
+
+Example
+
 `git-open heroku.org` 
 
 Opens the current branch in a remote called heroku. If you do not specify a domain, it defaults to github.com
