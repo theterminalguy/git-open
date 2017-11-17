@@ -18,7 +18,7 @@ check_if_remote_configured(){
   if ! [[ "$remotes" ]]; then
     echo "You have no remotes configured"
 
-    exit 65
+    exit 64
   fi
 }
 
