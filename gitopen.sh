@@ -3,7 +3,7 @@
 HOST=${1:-github.com}
 
 check_if_git_repository(){
-  inside_git_repo=$(git rev-parse --is--inside-work-tre 2>/dev/null)
+  inside_git_repo=$(git rev-parse --is--inside-work-tree 2>/dev/null)
 
   if ! [ "$inside_git_repo" ]; then
     echo "Not a git repo"
