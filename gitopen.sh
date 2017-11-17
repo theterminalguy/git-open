@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 HOST=${1:-github.com}
 
@@ -23,9 +23,10 @@ check_if_remote_configured(){
 }
 
 check_if_current_branch_exist_on_remote(){
-  branch_exist="$(git branch -r --contains) $(current_branch)"
+  git branch -r --contains $(current_branch) | grep $(current_branch)
+  command=$?
 
-  if ! [[ "$branch_exist" ]]; then
+  if  [[ command -ne 0 ]]; then
     echo "Branch $(current_branch) does not exist on remote."
     echo "Try git fetch [REMOTE_NAME] or git push -u [REMOTE_NAME] $(current_branch)"
     echo "and then try running the command again"
@@ -51,5 +52,4 @@ remote_url(){
 check_if_git_repository
 check_if_remote_configured
 check_if_current_branch_exist_on_remote
-current_branch_url
 open $(remote_url)
